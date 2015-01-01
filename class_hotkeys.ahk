@@ -40,7 +40,12 @@ class UCR extends CWindow{
 		; Update debug
 		this.HKList.Text := ""
 		for i, hotkey in GetHotkeys(){
-			this.HKList.Text .= "Type:" hotkey.Type "   Status:" hotkey.Off "   Lev:"   hotkey.Level "   Run:" hotkey.Running "   Name:" hotkey.Name "`n"
+			if (hotkey["Off?"]){
+				onoff := hotkey["Off?"]
+			} else {
+				onoff := "On"
+			}
+			this.HKList.Text .= "Name:" hotkey.Name "   Status: " onoff "`n"
 		}
 	}
 
@@ -63,6 +68,8 @@ class UCR extends CWindow{
 			if (key){
 				if (app){
 					Hotkey, IfWinActive, % "ahk_class " app
+				} else {
+					Hotkey, IfWinActive
 				}
 				Hotkey, % "~*" key, _UCR_HotkeyHandler, UseErrorLevel
 				Hotkey, % "~*" key " up", _UCR_HotkeyHandlerUp, UseErrorLevel
@@ -70,6 +77,9 @@ class UCR extends CWindow{
 				if (!app){
 					app := "_UCR_Global"
 				}
+				this.CurrentKey := key
+				this.CurrentApp := app
+
 				; Update the lookup table
 				if (!IsObject(_UCR_HotkeyLookup[app])){
 					_UCR_HotkeyLookup[app] := {}
@@ -91,6 +101,9 @@ class UCR extends CWindow{
 				}
 				Hotkey, % "~*" this.CurrentKey, Off, UseErrorLevel
 				Hotkey, % "~*" this.CurrentKey " up", Off, UseErrorLevel
+
+				this.CurrentKey := ""
+				this.CurrentApp := ""
 			}
 		}
 
