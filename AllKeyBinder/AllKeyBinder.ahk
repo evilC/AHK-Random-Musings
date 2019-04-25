@@ -12,10 +12,10 @@ class AllKeyBinder{
             keys[n] := code
             
             fn := this.KeyEvent.Bind(this, i, n, 1)
-            hotkey, % pfx n, % fn, On
+            hotkey, % pfx "SC" code, % fn, On
             
             fn := this.KeyEvent.Bind(this, i, n, 0)
-            hotkey, % pfx n " up", % fn, On        
+            hotkey, % pfx "SC" code " up", % fn, On        
         }
     }
     
