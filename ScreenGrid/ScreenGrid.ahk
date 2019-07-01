@@ -28,7 +28,7 @@ Video of it in action: https://streamable.com/gn39d
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleInstance, force
 setBatchLines, -1
-; #Include, %A_ScriptDir%\gdip.ahk
+#Include, <gdip> ; https://raw.githubusercontent.com/tariqporter/Gdip/master/Gdip.ahk
 coordmode, mouse, screen 
 OnExit, die
 
