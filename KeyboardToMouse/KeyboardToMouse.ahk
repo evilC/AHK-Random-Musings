@@ -20,7 +20,10 @@ d up::HandleInput("x", 1, 0)
 HandleInput(axis, dir, state){
 	global HoldMoveVectors, MoveFn, MoveMultiplier
 	if (state){
-		HoldMoveVectors[axis] := dir * MoveMultiplier
+		v := dir * MoveMultiplier
+		if (HoldMoveVectors[axis] == v)
+			return ; Filter repeats
+		HoldMoveVectors[axis] := v
 		SetTimer, % MoveFn, 10
 	} else {
 		HoldMoveVectors[axis] := 0
