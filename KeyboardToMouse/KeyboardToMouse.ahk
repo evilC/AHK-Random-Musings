@@ -35,5 +35,8 @@ HandleInput(axis, dir, state){
 
 DoMove(){
 	global HoldMoveVectors
+	; Cursor move (use to move mouse pointer)
 	MouseMove, % HoldMoveVectors.x, % HoldMoveVectors.y , 0, R
+	; Delta move (Use for FPS games)
+	; DllCall("mouse_event", "UInt", 0x01, "UInt", HoldMoveVectors.x, "UInt", HoldMoveVectors.y)
 }
