@@ -121,6 +121,7 @@ Sell:
         }
         ; Click sell
         Click, 1667, 1337
+        Sleep 500
     }
     JobTooltip("Selling done")
     return
