@@ -3,6 +3,8 @@
 ; Money making script for Astrox Imperium
 ; Automates buying scrap, refining it, then selling the refined goods
 ; https://steamcommunity.com/app/954870/discussions/0/1679189548058195121/
+; Use F1 to start the script, F2 to tell it to stop at the end of the next cycle
+; Ctrl+Esc can be used to instantly abort
 
 ; Note: This script is currently hard-wired for 2560x1440 resolution, it would need to be altered to work with other resolutions
 ; Before starting:
