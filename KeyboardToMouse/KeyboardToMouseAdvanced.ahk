@@ -1,6 +1,8 @@
 /*
 Advanced implementation of WSAD to mouse movement, with diagonal support and no delay for key repeat
 Does not suffer from the issue that the basic script does (Holding opposite key weirdness)
+If you hold an opposite key (eg hold d while a held), the cursor stops (Opposites cancel)
+If you then release a while still holding d, the cursor immediately starts moving right
 */
 
 #SingleInstance Force
