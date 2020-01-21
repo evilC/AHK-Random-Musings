@@ -41,7 +41,7 @@ KeyEvent(axis, dir){
 DoMove:
     x := AxisStates.x * Speed, y := AxisStates.y * Speed
     ; Cursor move (Use for desktop apps)
-    MouseMove % x, % y * Speed, 0 , R
+    MouseMove % x, % y, 0 , R
     ; Delta move (Use for FPS games)
 	; DllCall("mouse_event", "UInt", 0x01, "UInt", x, "UInt", y)
     return
