@@ -1,5 +1,6 @@
 /*
 An AHK script to automate setting temperatures for each layer for a Temperature Tower model in the Cura slicer
+Default values are for this tower: https://www.thingiverse.com/thing:2493504/comments#comment-3485818
 */
 #SingleInstance force
 CoordMode Mouse, Window
